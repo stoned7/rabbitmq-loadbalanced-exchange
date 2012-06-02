@@ -6,16 +6,16 @@ loadbalanced exchange("x-loadbalanced") is like direct exchange, which route the
 clone git repository to your "plugins-src" directory of rabbitmq codebase and from rabbitmq source codebase directory type the following command.
 
 $make clean
-$make run
+$make
 
-..........
-
-$rabbitmq-plugins list 
+$scripts/rabbitmq-plugins list 
 
 you should able to see the rabbitmq_loadbalanced_exchange in the listing.
 and now enabled the same.
 
-$rabbitmq-plugins enable rabbitmq_loadbalanced_exchange
+$scripts/rabbitmq-plugins enable rabbitmq_loadbalanced_exchange
+$make run
+
 
 now the plugin is enabled of type "x-loadbalanced" and you could create binding with multiple queues.
 
