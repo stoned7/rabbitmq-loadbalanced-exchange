@@ -15,7 +15,7 @@
 %%
 
 -module(rabbit_exchange_type_loadbalanced).
--author("sujandutta@gmail.com").
+-author('sujandutta@gmail.com').
 
 -include_lib("rabbit_common/include/rabbit.hrl").
 -behaviour(rabbit_exchange_type).
