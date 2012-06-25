@@ -64,12 +64,9 @@ route(#exchange{name = Name},#delivery{message = #basic_message{routing_keys = R
 		      || #amqqueue{name={_,_,queue,QName},pid=QPid} <- QMetadata, is_pid(QPid)],
 	    FilterQueues = lists:filter(fun(QStat) ->
 						{_,_, MsgCount} = QStat,
-						case MsgCount >= 0 of
-						    true -> true;
-						    false -> false
-						end
+						MsgCount >= 0
 					end, QStats), 
-
+	    
 	    [{QName, _, _}|_] = lists:keysort(3, FilterQueues),
 	    case lists:keyfind(QName, 4, Matches) of
 		false ->

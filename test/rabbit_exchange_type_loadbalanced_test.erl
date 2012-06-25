@@ -17,10 +17,13 @@
 -module(rabbit_exchange_type_loadbalanced_test).
 -author("sujandutta@gmail.com").
 
--export([test/0]).
+-export([test/0, test_after_install/0]).
 -include_lib("amqp_client/include/amqp_client.hrl").
 
 test() ->
+    ok.
+
+test_after_install() ->
     Queues = [<<"lbTestQ1">>, <<"lbTestQ2">>],
     % default settings to localhost.
     {ok, Connection} = amqp_connection:start(#amqp_params_network{}),
